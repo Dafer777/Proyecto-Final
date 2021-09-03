@@ -49,9 +49,8 @@ namespace ProyectoFinal
             //Console.Clear(); //permite limpiar la consola
             Console.WriteLine("Seleccion la operación a realizar: ");
             Console.WriteLine("1. Registrar nuevo usuario");
-            Console.WriteLine("2. Actualizar datos de paciente");
-            Console.WriteLine("3. Eliminar datos de paciente");
-            Console.WriteLine("4. Mostrar listado de paciente");
+            Console.WriteLine("2. borrar archivo");
+            Console.WriteLine("4. Mostrar archivo");
             Console.WriteLine("5. Salir");
             Console.Write("\nOpcion: ");
 
@@ -63,11 +62,9 @@ namespace ProyectoFinal
                 case "2":
                     
                 case "3":
-                
-                case "4":
                   
                     return true;
-                case "5":
+                case "4":
                     return false;
                 default:
                     return false;
