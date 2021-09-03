@@ -10,6 +10,8 @@ namespace ProyectoFinal
 {
     class Program
     {
+
+        //David Fernandez
         static void Main()
         {
 
@@ -99,6 +101,7 @@ namespace ProyectoFinal
                 sw.Close();
             }
         }
+        //David Fernandez
 
     }
 }
