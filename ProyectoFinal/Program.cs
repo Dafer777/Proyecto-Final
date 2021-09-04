@@ -30,28 +30,14 @@ namespace ProyectoFinal
 
         private static bool Menu()
         {
-            //USUARIO ADMIN
-            Console.Write("Nombre del usuario: ");
-            string name = Console.ReadLine();
-            Console.Write("Contraseña: ");
-            string contraseña = Console.ReadLine();
-
-
-            int i = 0;
-
-            if ((name == "admin") && (contraseña == "123"))
-            {
-                Console.WriteLine("Ha ingresado exitosamente");
-                i = 3;
-            }
 
             //crear el menu para mostrar al usuario
             //Console.Clear(); //permite limpiar la consola
             Console.WriteLine("Seleccion la operación a realizar: ");
             Console.WriteLine("1. Registrar nuevo usuario");
             Console.WriteLine("2. borrar archivo");
-            Console.WriteLine("4. Mostrar archivo");
-            Console.WriteLine("5. Salir");
+            Console.WriteLine("3. Mostrar archivo");
+            Console.WriteLine("4. Salir");
             Console.Write("\nOpcion: ");
 
             switch (Console.ReadLine())
@@ -59,46 +45,96 @@ namespace ProyectoFinal
                 case "1":
                     register(); //llamado al metodo registrar
                     return true;
+               
                 case "2":
-                    
+                   Delete();//lamado al metodo eliminar
+                    Console.ReadKey();
+                    return true;
                 case "3":
+                    //mostrar el contenido del archivo
+                    Mostrar();
+                    Console.WriteLine("alumnos");
                   
+                    Console.ReadKey();
                     return true;
                 case "4":
                     return false;
                 default:
                     return false;
+                    
             }
         }
-
 
 
 
         //metodo para obtener la ruta del archivo
         private static string getPath()
         {
-            string path = @"D:\ejemplo\registros.txt";
+            string path = @"D:\ejemplo\trabajo.txt";
             return path;
         }
 
-        //metodo para registrar datos en el archivo
+        //metodo para registrar al usuario
         private static void register()
         {
-            //solicitar los datos para registar al usuario
-            Console.WriteLine("DATOS USUARIO");
-            Console.Write("Nombre del usuario: ");
-            string name = Console.ReadLine();
-            Console.Write("Contraseña: ");
-            string contraseña = Console.ReadLine();
+           
+
+            
+        }
+        //David Fernandez
+
+        private static void Mostrar()
+        {
+
+            //comentario del aprendizaje de primer computo
+            string nombre = "SMIS006121";
+            String descripcion = "Me gusto toda la tematica de estudio las practicas me parecieron";
+            string des = "interesantes espero aprender mas en este segundo computo";
 
             //crear el archivo, uso de StreamWriter para escribir el archivo
             using (StreamWriter sw = File.AppendText(getPath()))
             {
-                sw.WriteLine("{0}; {1}", name, contraseña);
+
+                sw.WriteLine("{0}; {1}", nombre, descripcion,des);
+
                 sw.Close();
             }
+            string[] lines;
+            lines = File.ReadAllLines(getPath());
+            Console.WriteLine("CONTENIDO UTILIZANDO ReadAllLines");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                Console.WriteLine(lines[i]);
+            }
         }
-        //David Fernandez
+        //Borrar archivo
+        private static void Delete()
+        {
+
+            string ruta = getPath();
+            try
+            {
+                File.Delete(ruta);
+                if (File.Exists(ruta))
+                {
+                    Console.WriteLine("El archivo sigue existiendo.");
+                }
+                else
+                {
+                    Console.WriteLine("El archivo ya no existe.");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al borrar archivo: {0}", e.ToString());
+            }
+            Console.WriteLine("Presiona Enter para terminar.");
+            var name = Console.ReadLine();
+        }
+
+
+
+
 
     }
 }

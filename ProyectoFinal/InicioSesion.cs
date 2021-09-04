@@ -24,17 +24,14 @@ namespace ProyectoFinal
                 i = 5;
                 Console.WriteLine("Ha ingresado exitosamente");
             }
-            else if (i > 3)
-
-
-                Console.WriteLine("El numero de intento a sido alcanzado.");
-  
-
-
             else
             {
                 Console.WriteLine("El nombre de usuario o contraseña son incorrctos");
                 i++;
+                if (i > 3)
+                {
+                    Console.WriteLine("El numero de intento a sido alcanzado.");
+                }
 
 
                 //usuario nivel 2
