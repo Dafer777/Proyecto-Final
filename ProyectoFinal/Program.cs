@@ -81,21 +81,24 @@ namespace ProyectoFinal
 
             
         }
+
         //David Fernandez
 
+        //leer archivo
         private static void Mostrar()
         {
 
             //comentario del aprendizaje de primer computo
             string nombre = "SMIS006121";
-            String descripcion = "Me gusto toda la tematica de estudio las practicas me parecieron";
-            string des = "interesantes espero aprender mas en este segundo computo";
-
+            String descripcion = "Me gusto toda la tematica de estudio las practicas me parecion interesantes espero aprender mas en este segundo computo";
+            string codigo = "SMIS108421";
+            string aprendi = "Aprendi que el trabajo grupal ayuda a llegar mas rapido a la finalizacion de un proyecto";
             //crear el archivo, uso de StreamWriter para escribir el archivo
             using (StreamWriter sw = File.AppendText(getPath()))
             {
 
-                sw.WriteLine("{0}; {1}", nombre, descripcion,des);
+                sw.WriteLine("{0}; {1}", nombre, descripcion);
+                sw.WriteLine("{0}; {1}", codigo,aprendi);
 
                 sw.Close();
             }
@@ -107,6 +110,7 @@ namespace ProyectoFinal
                 Console.WriteLine(lines[i]);
             }
         }
+
         //Borrar archivo
         private static void Delete()
         {
